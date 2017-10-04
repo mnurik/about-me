@@ -25,7 +25,7 @@
     @include breakpoint(medium) {
         article {
             margin: (_size(section-spacing, medium) * 0.5) _size(section-spacing, medium) (_size(section-spacing, medium) * 0.5) 0;
-            width: calc(50% - #{_size(section-spacing, medium) * 0.5});
+            width: calc(50% - #{_size(section-spacing, medium) * 6});
         }
     }
 
@@ -35,7 +35,7 @@
             @include padding(1.5em, 1.5em);
 
             margin: (_size(section-spacing, small) * 0.5) _size(section-spacing, small) (_size(section-spacing, small) * 0.5) 0;
-            width: calc(50% - #{_size(section-spacing, small) * 0.5} - 1px);
+            width: calc(50% - #{_size(section-spacing, small) * 3} - 1px);
 
             .image {
                 margin-bottom: 1.5em;
@@ -48,11 +48,12 @@
 
 
     @include breakpoint(xsmall) {
-        display: block;
-
         article {
-            width: 100%;
-            margin: 0 0 _size(element-margin) 0 !important;
+            // width: 100%;
+            width: calc(50% - #{_size(section-spacing, small) * 2} - 1px);
+
+            // margin: 0 0 _size(element-margin) 0 !important;
+            margin: (_size(section-spacing, small) * 0.5) _size(section-spacing, small) (_size(section-spacing, small) * 0.5) 0;
         }
     }
 }

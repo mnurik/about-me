@@ -2048,23 +2048,21 @@ button,
   @media screen and (max-width: 980px) {
     .features article {
       margin: 1em 2em 1em 0;
-      width: calc(50% - 1em); } }
+      width: calc(50% - 12em); } }
   @media screen and (max-width: 736px) {
     .features article {
       padding: 1.5em 1.5em 0.1em 1.5em ;
       margin: 0.875em 1.75em 0.875em 0;
-      width: calc(50% - 0.875em - 1px); }
+      width: calc(50% - 5.25em - 1px); }
       .features article .image {
         margin-bottom: 1.5em;
         margin-left: -1.5em;
         margin-top: -1.5em;
         width: calc(100% + 3em); } }
   @media screen and (max-width: 640px) {
-    .features {
-      display: block; }
-      .features article {
-        width: 100%;
-        margin: 0 0 2em 0 !important; } }
+    .features article {
+      width: calc(50% - 3.5em - 1px);
+      margin: 0.875em 1.75em 0.875em 0; } }
 
 /* Banner */
 #banner {
@@ -2143,7 +2141,7 @@ button,
     #banner {
       padding: 7em 0 8.25em 0 ;
       background-color: #2e3141;
-      background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+      background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?dpr=1&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=");
       background-size: auto, cover;
       background-position: center, center;
       margin-bottom: -6.5em; } }
@@ -2498,7 +2496,7 @@ button,
 @media screen and (max-width: 1280px) {
   #footer {
     background-color: #2e3141;
-    background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+    background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?dpr=1&auto=compress,format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=");
     background-size: auto, cover;
     background-position: center, center;
     margin-top: -6.5em;
