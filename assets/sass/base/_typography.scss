@@ -12,6 +12,7 @@
 		font-size: 16.5pt;
 		font-weight: _font(weight);
 		line-height: 1.65;
+		letter-spacing: 1px;
 
 		@include breakpoint(xlarge) {
 			font-size: 13pt;
