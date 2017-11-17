@@ -100,7 +100,7 @@
 								<i>Writing and executing unit-tests in Jest;</i>
 							</li>
 							<li>
-								<i>Redux for controling state managment;</i>
+								<i>Redux for controlling state management;</i>
 							</li>
 						</ul>
 					</div>
@@ -124,68 +124,8 @@
 				<div class="inner">
 					<h2 class="major">Skills</h2>
 					<section class="features">
-						<article>
-							<img src="./assets/images/html.png" alt="HTML5" title="HTML5" />
-						</article>
-						<article>
-							<img src="./assets/images/css.png" alt="CSS3" title="CSS3" />
-						</article>
-						<article>
-							<img src="./assets/images/scss.svg" alt="Sass" title="Sass" />
-						</article>
-						<article>
-							<img src="./assets/images/bootstrap.png" alt="Bootstrap" title="Bootstrap" />
-						</article>
-						<article>
-							<img src="./assets/images/js.png" alt="Javascript" title="Javascript" />
-						</article>
-						<article>
-							<img src="./assets/images/jquery.png" alt="JQuery" title="JQuery" />
-						</article>
-						<article>
-							<img src="./assets/images/ajax.png" alt="AJAX" title="AJAX" />
-						</article>
-						<article>
-							<img src="./assets/images/es6.svg" alt="ES6" title="ES6" />
-						</article>
-						<article>
-							<img src="./assets/images/rxjs.png" alt="Rx.js" title="Rx.js" />
-						</article>
-						<article>
-							<img src="./assets/images/cyclejs.png" alt="Cycle.js" title="Cycle.js" />
-						</article>
-						<article>
-							<img src="./assets/images/react.png" alt="React" title="React" />
-						</article>
-						<article>
-							<img src="./assets/images/reactnative.png" alt="React Native" title="React Native" />
-						</article>
-						<article>
-							<img src="./assets/images/redux.png" alt="Redux" title="Redux" />
-						</article>
-						<article>
-							<img src="./assets/images/git.png" alt="Git" title="Git" />
-						</article>
-						<article>
-							<img src="./assets/images/gulp.png" alt="Gulp" title="Gulp" />
-						</article>
-						<article>
-							<img src="./assets/images/webpack.svg" alt="Webpack" title="Webpack" />
-						</article>
-						<article>
-							<img src="./assets/images/npm.png" alt="npm" title="npm" />
-						</article>
-						<article>
-							<img src="./assets/images/aze.png" alt="Azerbaijanian lang." title="Azerbaijanian lang." />
-						</article>
-						<article>
-							<img src="./assets/images/turk.png" alt="Turkish lang." title="Turkish lang." />
-						</article>
-						<article>
-							<img src="./assets/images/rus.png" alt="Russian lang." title="Russian lang." />
-						</article>
-						<article>
-							<img src="./assets/images/usa.png" alt="English lang." title="English lang." />
+						<article v-for="item in skills">
+							<img v-bind:src="'./assets/images/' + item.src" v-bind:alt="item.title" v-bind:title="item.title" />
 						</article>
 					</section>
 				</div>
@@ -199,21 +139,84 @@
 				<h2 class="major">Contact me:</h2>
 				<ul class="contact">
 					<li class="fa-phone">(+99451) 981-65-83</li>
-					<li class="fa-envelope">nurlanmirzay@gmail.com</li>
+					<li class="fa-envelope">{{email}}
+						<a style="margin-left: 5px;" v-on:click.prevent="copyToClipboard">{{copy}}</a>
+					</li>
 					<li class="fa-skype">mnurik93</li>
 					<li>
 						<a href="./cv.pdf" download="Nurlan Mirzayev CV" class="button small special">Download pdf resume</a>
 					</li>
 				</ul>
 				<ul class="copyright">
-					<li>Designed by:
+					<li>Developed by:
 						<a href="https://www.linkedin.com/in/mnurik/">Nurlan Mirzayev</a>
+					</li>
+					<li>
+						Project written with Vue.js framework, my first try :)
 					</li>
 				</ul>
 			</div>
 		</section>
 
 	</div>
+
+	<script>
+		new Vue({
+			el: "#page-wrapper",
+			data: {
+				email: 'nurlanmirzay@gmail.com',
+				copy: 'copy',
+				skills: [
+					{ src: "html.png", title: "HTML5" },
+					{ src: "css.png", title: "CSS3" },
+					{ src: "scss.svg", title: "Sass" },
+					{ src: "bootstrap.png", title: "Bootstrap" },
+					{ src: "js.png", title: "Javascript" },
+					{ src: "jquery.png", title: "JQuery" },
+					{ src: "ajax.png", title: "AJAX" },
+					{ src: "es6.svg", title: "ES6" },
+					{ src: "rxjs.png", title: "Rx.js" },
+					{ src: "cyclejs.png", title: "Cycle.js" },
+					{ src: "react.png", title: "React" },
+					{ src: "reactnative.png", title: "React Native" },
+					{ src: "redux.png", title: "Redux" },
+					{ src: "vue.png", title: "Vue.js" },
+					{ src: "git.png", title: "Git" },
+					{ src: "gulp.png", title: "Gulp" },
+					{ src: "webpack.svg", title: "Webpack" },
+					{ src: "npm.png", title: "npm" },
+					{ src: "aze.png", title: "Azerbaijanian lang." },
+					{ src: "turk.png", title: "Turkish lang." },
+					{ src: "rus.png", title: "Russian lang." },
+					{ src: "usa.png", title: "English lang." },
+				]
+			},
+			methods: {
+				copyToClipboard(el) {
+					var copyTest = document.queryCommandSupported('copy');
+					var elOriginalText = this.copy;
+
+					if (copyTest === true) {
+						var copyTextArea = document.createElement("textarea");
+						copyTextArea.value = this.email;
+						document.body.appendChild(copyTextArea);
+						copyTextArea.select();
+						try {
+							var successful = document.execCommand('copy');
+							this.copy = successful ? 'copied!' : 'Whoops, not copied!';
+						} catch (err) {
+							console.log('Oops, unable to copy');
+						}
+						document.body.removeChild(copyTextArea);
+						setTimeout(() => { this.copy = elOriginalText; }, 1500);
+					} else {
+						// Fallback if browser doesn't support .execCommand('copy')
+						window.prompt("Copy to clipboard: Ctrl+C or Command+C, Enter", text);
+					}
+				}
+			}
+		})
+	</script>
 
 </body>
 
